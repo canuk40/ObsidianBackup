@@ -511,7 +511,16 @@ dependencies {
     
     // Wear OS Data Layer (for phone-watch communication)
     implementation("com.google.android.gms:play-services-wearable:18.1.0")
-    
+
+    // Google Sign-In (OAuth2Manager)
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
+
+    // Google Play Services Location + Activity Recognition (ContextAwareManager)
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+
+    // Coroutines adapter for Play Services Tasks (kotlinx.coroutines.tasks.await)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
+
     // Testing
     // JUnit 5
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
