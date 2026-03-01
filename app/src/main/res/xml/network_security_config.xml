@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Network Security Configuration -->
+<!-- Implements OWASP MASVS-NETWORK requirements -->
+<network-security-config>
+    <!-- Production configuration (default) -->
+    <base-config cleartextTrafficPermitted="false">
+        <!-- Trust only system certificates -->
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    
+    <!-- Domain-specific configurations -->
+    <domain-config>
+        <!-- Google APIs (googleapis.com, google.com) -->
+        <domain includeSubdomains="true">googleapis.com</domain>
+        <domain includeSubdomains="true">google.com</domain>
+        <pin-set expiration="2026-12-31">
+            <!-- *.googleapis.com leaf certificate (current) -->
+            <pin digest="SHA-256">dMKp+EmLpCLB/WxGhCnWWRcS+FG6u6XdQAQjcaaK8qE=</pin>
+            <!-- WR2 intermediate certificate -->
+            <pin digest="SHA-256">YPtHaftLw6/0vnc2BnNKGF54xiCA28WFcccjkA4ypCM=</pin>
+            <!-- GTS Root R1 root certificate (backup) -->
+            <pin digest="SHA-256">hxqRlPTu1bMS/0DITB1SSu0vd4u/8l8TjPgfaAp63Gc=</pin>
+        </pin-set>
+    </domain-config>
+    
+    <!-- Custom backend configuration (ONLY if you have your own API server) -->
+    <!-- 
+         IMPORTANT: Replace placeholder pins with actual certificate pins before enabling
+         
+         To generate pins for your domain:
+         openssl s_client -connect api.obsidianbackup.com:443 -servername api.obsidianbackup.com < /dev/null | \
+         openssl x509 -pubkey -noout | \
+         openssl pkey -pubin -outform der | \
+         openssl dgst -sha256 -binary | \
+         openssl enc -base64
+         
+         Always include at least 2 pins (primary + backup) for certificate rotation
+    -->
+    <!--
+    <domain-config>
+        <domain includeSubdomains="true">api.obsidianbackup.com</domain>
+        <pin-set expiration="2026-12-31">
+            <pin digest="SHA-256">YOUR_PRIMARY_CERTIFICATE_PIN_HERE</pin>
+            <pin digest="SHA-256">YOUR_BACKUP_CERTIFICATE_PIN_HERE</pin>
+        </pin-set>
+    </domain-config>
+    -->
+    
+    <!-- Debug configuration (localhost only) -->
+    <debug-overrides>
+        <trust-anchors>
+            <!-- Trust user-added certificates for debugging -->
+            <certificates src="user" />
+            <certificates src="system" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

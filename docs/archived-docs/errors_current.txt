@@ -1,0 +1,83 @@
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/community/TipsManager.kt:125:39 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/data/repository/CatalogRepository.kt:16:23 Unresolved reference: insertSnapshot
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/data/repository/CatalogRepository.kt:20:30 Unresolved reference: getSnapshotById
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/data/repository/CatalogRepository.kt:28:38 Type mismatch: inferred type is String but BackupId was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/backup/BackupOrchestrator.kt:50:30 Type mismatch: inferred type is SnapshotId but BackupId was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:4:41 Unresolved reference: TransactionalRestoreEngine
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:11:45 Unresolved reference: TransactionalRestoreEngine
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/BusyBoxEngine.kt:14:1 Class 'BusyBoxEngine' is not abstract and does not implement abstract member public abstract suspend fun backupApps(request: BackupRequest): BackupResult defined in com.obsidianbackup.engine.BackupEngine
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/BusyBoxEngine.kt:22:5 'backupApps' overrides nothing
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ObsidianBoxEngine.kt:157:21 Cannot find a parameter with this name: failedApps
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ObsidianBoxEngine.kt:160:21 Cannot find a parameter with this name: checksums
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ObsidianBoxEngine.kt:161:21 No value passed for parameter 'appsFailed'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ObsidianBoxEngine.kt:423:21 Cannot find a parameter with this name: failedApps
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ObsidianBoxEngine.kt:425:21 Cannot find a parameter with this name: warnings
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ObsidianBoxEngine.kt:425:21 No value passed for parameter 'appsFailed'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ParallelBackupEngine.kt:17:13 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ParallelBackupEngine.kt:22:11 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/ParallelBackupEngine.kt:38:26 Type mismatch: inferred type is BackupId but SnapshotId was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:22:52 Type mismatch: inferred type is SnapshotId but BackupId was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/examples/FilecoinBackupExample.kt:63:13 Unresolved reference: CloudFile
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/examples/FilecoinBackupExample.kt:71:24 Unresolved reference: CloudSnapshotMetadata
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/examples/SmartBackupIntegration.kt:111:43 Unresolved reference: FileAnomaly
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/examples/SmartBackupIntegration.kt:121:26 Unresolved reference: ModelStats
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/examples/SmartBackupIntegration.kt:267:80 Unresolved reference: context
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/examples/SmartBackupIntegration.kt:281:73 Unresolved reference: context
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/health/HealthConnectManager.kt:29:33 Unresolved reference: isAvailable
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/health/HealthConnectManager.kt:325:25 Suspend function 'savePrivacySettings' should be called only from a coroutine or another suspend function
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/logging/TitanLogger.kt:86:48 Unresolved reference: date_
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/client/MigrationClient.kt:132:23 Unresolved reference: SnapshotTransferRequest
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:152:31 Unresolved reference: detectMessageType
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:154:17 Comparison of incompatible enums '[Error type: Not found recorded type for detectMessageType(message)]' and 'MessageType' is always unsuccessful
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:155:17 Comparison of incompatible enums '[Error type: Not found recorded type for detectMessageType(message)]' and 'MessageType' is always unsuccessful
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:156:17 Comparison of incompatible enums '[Error type: Not found recorded type for detectMessageType(message)]' and 'MessageType' is always unsuccessful
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:157:17 Comparison of incompatible enums '[Error type: Not found recorded type for detectMessageType(message)]' and 'MessageType' is always unsuccessful
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:199:51 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:202:41 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/migration/server/MigrationServer.kt:212:43 Unresolved reference: it
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/performance/LazyListOptimizer.kt:20:12 Type mismatch: inferred type is Float but Int was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/performance/LazyListOptimizer.kt:20:64 Type mismatch: inferred type is Int but Float was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/performance/PerformanceProfiler.kt:74:13 Public-API inline function cannot access non-public-API 'private final fun recordMeasurement(operationName: String, durationNanos: Long): Unit defined in com.obsidianbackup.performance.PerformanceProfiler'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/performance/PerformanceProfiler.kt:87:13 Public-API inline function cannot access non-public-API 'private final fun recordMeasurement(operationName: String, durationNanos: Long): Unit defined in com.obsidianbackup.performance.PerformanceProfiler'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:18:34 Unresolved reference: ApkAccessCapability
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:18:60 Suspend function 'isAvailable' should be called only from a coroutine or another suspend function
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:18:71 No value passed for parameter 'context'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:21:34 Unresolved reference: DataAccessCapability
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:21:61 Suspend function 'isAvailable' should be called only from a coroutine or another suspend function
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:21:72 No value passed for parameter 'context'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:29:30 Unresolved reference: checkRootAccess
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/permissions/PermissionCapability.kt:37:16 Unresolved reference: ShizukuService
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugin/PluginAPI.kt:17:34 Unresolved reference: BackupRequest
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugin/PluginAPI.kt:18:34 Unresolved reference: BackupResult
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugin/PluginAPI.kt:19:34 Unresolved reference: RestoreRequest
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugin/PluginAPI.kt:20:34 Unresolved reference: RestoreResult
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugin/PluginAPI.kt:45:26 Return type of 'initialize' is not a subtype of the return type of the overridden member 'public abstract suspend fun initialize(context: PluginContext): PluginResult<Unit> defined in com.obsidianbackup.api.plugin.ObsidianBackupPlugin'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugin/PluginAPI.kt:63:36 Suspend function 'syncToCloud' should be called only from a coroutine or another suspend function
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/presentation/backup/BackupViewModel.kt:54:17 Unresolved reference: BackupRequest
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/presentation/health/HealthViewModel.kt:45:62 Unresolved reference: hasRequiredPermissions
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/presentation/health/HealthViewModel.kt:60:34 Unresolved reference: exportHealthData
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/presentation/health/HealthViewModel.kt:66:56 Type mismatch: inferred type is Boolean but HealthPrivacySettings was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:35:46 Type checking has run into a recursive problem. Easiest workaround: specify types of your declarations explicitly
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:36:44 Type checking has run into a recursive problem. Easiest workaround: specify types of your declarations explicitly
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:37:47 Type checking has run into a recursive problem. Easiest workaround: specify types of your declarations explicitly
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricExampleUsage.kt:74:82 Type mismatch: inferred type is BiometricExampleActivity but FragmentActivity was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricExampleUsage.kt:134:73 Type mismatch: inferred type is BiometricExampleActivity but FragmentActivity was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricExampleUsage.kt:212:40 Type mismatch: inferred type is BiometricExampleActivity but FragmentActivity was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricExampleUsage.kt:257:24 Type mismatch: inferred type is BiometricExampleActivity but FragmentActivity was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricExampleUsage.kt:281:24 Type mismatch: inferred type is BiometricExampleActivity but FragmentActivity was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/RootDetectionManager.kt:214:69 Type mismatch: inferred type is String? but String was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/SecureDatabaseHelper.kt:93:56 None of the following functions can be called with the arguments supplied: 
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/WebViewSecurityManager.kt:328:20 Unresolved reference: SslError
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/ObsidianBackupApp.kt:96:13 'when' expression must be exhaustive, add necessary 'Changelog', 'Community', 'Feedback', 'Onboarding', 'Tips' branches or 'else' branch instead
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/ObsidianBackupApp.kt:106:58 No value passed for parameter 'featureFlags'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/ObsidianBackupApp.kt:106:58 No value passed for parameter 'onBack'
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/AppsScreen.kt:252:34 Unresolved reference: canBackupObb
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/AppsScreen.kt:253:34 Unresolved reference: canBackupExternalData
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/HealthScreen.kt:114:29 Type mismatch: inferred type is Dp but CardElevation was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/HealthScreen.kt:153:29 Type mismatch: inferred type is Dp but CardElevation was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/HealthScreen.kt:206:9 Cannot find a parameter with this name: backgroundColor
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/HealthScreen.kt:207:21 Type mismatch: inferred type is Dp but CardElevation was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/PluginsScreen.kt:157:21 Type mismatch: inferred type is Dp but CardElevation was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/verification/ChecksumVerifier.kt:72:9 'return' is not allowed here
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/verification/ChecksumVerifier.kt:74:30 Type mismatch: inferred type is BackupId but SnapshotId was expected
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/verification/ChecksumVerifier.kt:81:30 Type mismatch: inferred type is BackupId but SnapshotId was expected

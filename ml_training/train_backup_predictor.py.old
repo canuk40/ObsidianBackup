@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""TensorFlow Lite Model Training Script for ObsidianBackup"""
+import json
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from sklearn.model_selection import train_test_split
+import os
+
+INPUT_FEATURES = 7
+HIDDEN_LAYER_1 = 16
+HIDDEN_LAYER_2 = 8
+
+def extract_features(events):
+    from datetime import datetime
+    features, labels = [], []
+    location_map = {"UNKNOWN": 0, "HOME": 0.33, "WORK": 0.66, "COMMUTE": 1.0}
+    activity_map = {"UNKNOWN": 0, "STILL": 0.2, "WALKING": 0.4, "DRIVING": 0.6, "IN_VEHICLE": 0.8}
+    
+    for event in events:
+        dt = datetime.fromisoformat(event['timestamp'].replace('Z', '+00:00'))
+        ctx = event['context']
+        features.append([
+            dt.hour / 24.0, dt.weekday() / 7.0, ctx['batteryLevel'] / 100.0,
+            1.0 if ctx['isCharging'] else 0.0, 1.0 if ctx['isWifiConnected'] else 0.0,
+            location_map.get(ctx['locationCategory'], 0.0),
+            activity_map.get(ctx['activityType'], 0.0)
+        ])
+        labels.append(1.0 if event['success'] else 0.0)
+    return np.array(features, dtype=np.float32), np.array(labels, dtype=np.float32)
+
+def create_model():
+    model = keras.Sequential([
+        layers.Input(shape=(INPUT_FEATURES,)),
+        layers.Dense(HIDDEN_LAYER_1, activation='relu'),
+        layers.Dropout(0.2),
+        layers.Dense(HIDDEN_LAYER_2, activation='relu'),
+        layers.Dropout(0.2),
+        layers.Dense(1, activation='sigmoid')
+    ])
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+    return model
+
+def main():
+    analytics_file = "analytics_export.json"
+    if not os.path.exists(analytics_file):
+        print(f"Error: {analytics_file} not found!")
+        return
+    
+    with open(analytics_file) as f:
+        events = json.load(f)['events']
+    print(f"Loaded {len(events)} events")
+    
+    features, labels = extract_features(events)
+    X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2)
+    
+    model = create_model()
+    model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=1)
+    
+    test_loss, test_accuracy = model.evaluate(X_test, y_test)
+    print(f"Test Accuracy: {test_accuracy:.4f}")
+    
+    converter = tf.lite.TFLiteConverter.from_keras_model(model)
+    converter.optimizations = [tf.lite.Optimize.DEFAULT]
+    tflite_model = converter.convert()
+    
+    with open("backup_predictor.tflite", 'wb') as f:
+        f.write(tflite_model)
+    print("Model saved to backup_predictor.tflite")
+
+if __name__ == "__main__":
+    main()

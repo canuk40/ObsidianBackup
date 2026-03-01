@@ -1,0 +1,7 @@
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:35:51 Const 'val' initializer should be a constant value
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:35:51 Variable 'BIOMETRIC_STRONG' must be initialized
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:36:49 Const 'val' initializer should be a constant value
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:36:49 Variable 'BIOMETRIC_WEAK' must be initialized
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:37:52 Const 'val' initializer should be a constant value
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/security/BiometricAuthManager.kt:37:52 Variable 'DEVICE_CREDENTIAL' must be initialized
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/screens/HealthScreen.kt:55:31 Unresolved reference: exportHealthData

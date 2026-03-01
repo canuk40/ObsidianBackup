@@ -1,0 +1,89 @@
+# local.properties - Template
+# 
+# IMPORTANT: This file contains sensitive API keys and secrets.
+# Copy this template to "local.properties" and fill in your actual values.
+# The actual "local.properties" file is .gitignore'd and should NEVER be committed.
+#
+# Setup instructions:
+# 1. Copy this file: cp local.properties.template local.properties
+# 2. Fill in your actual API keys below
+# 3. NEVER commit the actual local.properties file
+#
+
+# ============================================================================
+# GOOGLE PLAY INTEGRITY API — Cloud Project Number
+# ============================================================================
+# Replaces the deprecated SafetyNet API for device integrity attestation.
+# Used for root detection in RootDetectionManager.kt (BuildConfig.PLAY_INTEGRITY_CLOUD_PROJECT).
+#
+# Steps to obtain:
+# 1. Go to Google Cloud Console: https://console.cloud.google.com/
+# 2. Select (or create) the same project linked to your Firebase app.
+# 3. Enable "Play Integrity API" in APIs & Services → Library.
+# 4. In API & Services → Credentials, your "Project Number" appears at the top
+#    of the project dashboard (NOT the project ID — the numeric value).
+# 5. Paste it below.
+#
+play.integrity.cloud.project=YOUR_GCP_PROJECT_NUMBER
+
+
+# ============================================================================
+# GOOGLE PLAY LICENSE KEY (purchase signature verification)
+# ============================================================================
+# Required for cryptographic verification of purchase receipts from Google Play.
+# Without this key ALL purchases will be rejected as unverified.
+#
+# How to get it:
+#   1. Open Google Play Console → your app → Monetize → Products (any product page)
+#   2. Click "License key" tab (or navigate via App → Monetize → Subscriptions)
+#   3. Copy the Base64-encoded RSA public key shown there
+#   4. Paste it below as a single line (no spaces or line breaks)
+#
+play.license.key=YOUR_GOOGLE_PLAY_RSA_PUBLIC_KEY_BASE64
+
+
+# ============================================================================
+# GOOGLE SAFETYNET API KEY (DEPRECATED — use Play Integrity above)
+# ============================================================================
+# SafetyNet is deprecated as of June 2024. Left for reference only.
+#
+# safetynet.api.key=YOUR_SAFETYNET_API_KEY_HERE
+
+# ============================================================================
+# ADDITIONAL SECRETS (Add as needed)
+# ============================================================================
+
+# Firebase API Key (if using Firebase directly)
+# firebase.api.key=YOUR_FIREBASE_API_KEY
+
+# Stripe Publishable Key (if using payments)
+# stripe.publishable.key=YOUR_STRIPE_KEY
+
+# Analytics Keys
+# analytics.tracking.id=YOUR_ANALYTICS_ID
+
+# Custom Backend API Key
+# backend.api.key=YOUR_BACKEND_KEY
+
+# ============================================================================
+# BUILD CONFIGURATION (Optional)
+# ============================================================================
+
+# Signing configuration (if not using key.properties)
+# keystore.path=/path/to/your/keystore.jks
+# keystore.password=YOUR_KEYSTORE_PASSWORD
+# key.alias=YOUR_KEY_ALIAS
+# key.password=YOUR_KEY_PASSWORD
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# - This file is read by Gradle during build
+# - Values are injected into BuildConfig
+# - Empty values default to empty strings
+# - Never share this file or commit to Git
+# - For CI/CD, set these as environment variables instead
+
+# Backblaze B2 (get from backblaze.com → Account → App Keys)
+b2.keyId=YOUR_KEY_ID
+b2.applicationKey=YOUR_APPLICATION_KEY

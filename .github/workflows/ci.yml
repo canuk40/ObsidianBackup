@@ -1,0 +1,76 @@
+# .github/workflows/ci.yml
+name: TitanBackup CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: Run unit tests
+        run: ./gradlew test
+
+      - name: Run integration tests
+        run: ./gradlew connectedAndroidTest
+
+      - name: Generate coverage report
+        run: ./gradlew jacocoTestReport
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: Run detekt
+        run: ./gradlew detekt
+
+      - name: Run Android Lint
+        run: ./gradlew lint
+
+      - name: Security scan
+        run: ./gradlew dependencyCheckAnalyze
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: Create local.properties from secrets
+        run: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" >> local.properties
+          echo "play.license.key=${{ secrets.PLAY_LICENSE_KEY }}" >> local.properties
+
+      - name: Build release APK
+        run: ./gradlew assembleRelease
+
+      - name: Sign APK
+        run: |
+          jarsigner -keystore ${{ secrets.KEYSTORE }} \
+            app/build/outputs/apk/release/app-release-unsigned.apk \
+            titanbackup
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: titanbackup-release
+          path: app/build/outputs/apk/release/

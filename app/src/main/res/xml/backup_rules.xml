@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Auto-backup rules for Android Auto Backup (API 23-30)
+   Security-hardened: Excludes sensitive data like encrypted databases and keys.
+   See https://developer.android.com/guide/topics/data/autobackup
+-->
+<full-backup-content>
+    <!-- Include all databases first, then exclude specific ones -->
+    <include domain="database" path="." />
+    
+    <!-- Include all shared preferences first -->
+    <include domain="sharedpref" path="." />
+    
+    <!-- Include all files first -->
+    <include domain="file" path="." />
+    
+    <!-- Exclude encrypted databases - should not be backed up to cloud -->
+    <exclude domain="database" path="backup_data.db" />
+    <exclude domain="database" path="encrypted_backup.db" />
+    
+    <!-- Exclude all secure shared preferences containing encryption keys -->
+    <exclude domain="sharedpref" path="secure_prefs.xml" />
+    <exclude domain="sharedpref" path="secure_keystore.xml" />
+    <exclude domain="sharedpref" path="biometric_keys.xml" />
+    <exclude domain="sharedpref" path="encryption_keys.xml" />
+    
+    <!-- Exclude cache directory -->
+    <exclude domain="file" path="cache" />
+    
+    <!-- Exclude temporary backup files -->
+    <exclude domain="file" path="backups/temp" />
+</full-backup-content>

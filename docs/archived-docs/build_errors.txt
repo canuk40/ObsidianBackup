@@ -1,0 +1,52 @@
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/cloud/GoogleDriveProvider.kt:609:35 Overload resolution ambiguity between candidates:
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/cloud/WebDavCloudProvider.kt:672:62 Argument type mismatch: actual type is 'java.lang.Exception', but 'kotlin.collections.Map<kotlin.String, kotlin.String>' was expected.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/cloud/WebDavCloudProvider.kt:759:78 Argument type mismatch: actual type is 'java.lang.Exception', but 'kotlin.collections.Map<kotlin.String, kotlin.String>' was expected.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/crypto/ZeroKnowledgeEncryption.kt:95:25 Unresolved reference 'clearPassword'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/di/AppModule.kt:201:72 No value passed for parameter 'backupCatalog'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/di/AppModule.kt:234:32 No value passed for parameter 'merkleTree'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/di/AppModule.kt:459:84 Argument type mismatch: actual type is 'com.obsidianbackup.logging.ObsidianLogger', but 'com.obsidianbackup.domain.backup.BackupOrchestrator' was expected.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/di/AppModule.kt:459:84 No value passed for parameter 'backupScheduler'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/di/AppModule.kt:459:84 No value passed for parameter 'logger'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/backup/BackupOrchestrator.kt:115:16 Unresolved reference 'withContext'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/backup/BackupOrchestrator.kt:115:28 Unresolved reference 'Dispatchers'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/backup/BackupOrchestrator.kt:116:21 Suspension functions can only be called within coroutine body.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/backup/BackupOrchestrator.kt:255:36 Unresolved reference 'totalFilesDeleted'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:19:62 Unresolved reference 'beginTransaction'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:19:94 Unresolved reference 'backupId'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:30:52 Unresolved reference 'restoreApp'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:39:48 Unresolved reference 'commit'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:42:48 Unresolved reference 'rollback'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:44:25 No parameter with name 'error' found.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:44:25 No value passed for parameter 'reason'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/domain/usecase/RestoreAppsUseCase.kt:48:48 Unresolved reference 'commit'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:19:37 Unresolved reference 'BackupOrchestrator'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:208:32 Unresolved reference 'executeBackup'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:219:32 Unresolved reference 'getBackupMetadata'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:224:17 No parameter with name 'errors' found.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:224:17 No value passed for parameter 'filesChecked'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:233:17 No parameter with name 'errors' found.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:233:17 No value passed for parameter 'filesChecked'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:241:35 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:242:50 Unresolved reference 'value'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:244:45 Unresolved reference 'value'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:245:66 Unresolved reference 'value'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:253:13 No parameter with name 'errors' found.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:253:13 No value passed for parameter 'filesChecked'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/engine/TransactionalRestoreEngine.kt:260:21 Unresolved reference 'deleteBackup'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugins/PluginManager.kt:204:46 Unresolved reference 'BackupResult'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugins/builtin/WebDavCloudProvider.kt:40:30 Unresolved reference 'ResumeSupport'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugins/builtin/WebDavCloudProvider.kt:145:23 None of the following candidates is applicable:
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/plugins/builtin/WebDavCloudProvider.kt:204:24 None of the following candidates is applicable:
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/components/LiveBackupConsole.kt:141:9 Unresolved reference 'Box'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/components/LiveBackupConsole.kt:142:53 Unresolved reference 'fillMaxSize'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/ui/components/LiveBackupConsole.kt:145:40 @Composable invocations can only happen from the context of a @Composable function
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:46:78 Unresolved reference 'launch'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:47:38 Suspend function 'suspend fun sendBackupStatus(status: BackupStatusData): Unit' should be called only from a coroutine or another suspend function.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:61:78 Unresolved reference 'launch'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:63:48 Unresolved reference 'getAllBackups'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:64:59 Unresolved reference 'timestamp'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:64:61 Unresolved reference 'it'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:68:52 Unresolved reference 'timestamp'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:69:55 Unresolved reference 'verified'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:71:50 Unresolved reference 'totalSizeBytes'.
+e: file:///root/workspace/ObsidianBackup/app/src/main/java/com/obsidianbackup/wear/PhoneDataLayerListenerService.kt:74:42 Suspend function 'suspend fun sendBackupStatus(status: BackupStatusData): Unit' should be called only from a coroutine or another suspend function.

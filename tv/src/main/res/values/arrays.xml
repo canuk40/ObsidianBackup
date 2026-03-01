@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Backup Frequency Options -->
+    <string-array name="backup_frequency_entries">
+        <item>Hourly</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+
+    <string-array name="backup_frequency_values">
+        <item>hourly</item>
+        <item>daily</item>
+        <item>weekly</item>
+        <item>monthly</item>
+    </string-array>
+
+    <!-- Cloud Provider Options -->
+    <string-array name="cloud_provider_entries">
+        <item>None</item>
+        <item>Google Drive</item>
+        <item>Dropbox</item>
+        <item>WebDAV</item>
+    </string-array>
+
+    <string-array name="cloud_provider_values">
+        <item>none</item>
+        <item>google_drive</item>
+        <item>dropbox</item>
+        <item>webdav</item>
+    </string-array>
+</resources>

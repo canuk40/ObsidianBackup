@@ -1,0 +1,14 @@
+# config/detekt.yml
+complexity:
+  CyclomaticComplexMethod:
+    threshold: 15
+  LongMethod:
+    threshold: 60
+
+style:
+  MagicNumber:
+    ignoreNumbers: ['-1', '0', '1', '2']
+
+performance:
+  ForEachOnRange:
+    active: true

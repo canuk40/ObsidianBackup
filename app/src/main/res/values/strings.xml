@@ -1,0 +1,256 @@
+<resources>
+    <string name="app_name">ObsidianBackup</string>
+
+    <!-- Accessibility Content Descriptions -->
+    <string name="cd_nav_dashboard">Navigate to Dashboard</string>
+    <string name="cd_nav_apps">Navigate to Apps screen</string>
+    <string name="cd_nav_backups">Navigate to Backups screen</string>
+    <string name="cd_nav_automation">Navigate to Automation screen</string>
+    <string name="cd_nav_logs">Navigate to Logs screen</string>
+    <string name="cd_nav_settings">Navigate to Settings screen</string>
+
+    <string name="cd_backup_button">Backup selected applications</string>
+    <string name="cd_restore_button">Restore applications from backup</string>
+    <string name="cd_select_app">Select application for backup</string>
+    <string name="cd_app_selected">Application selected</string>
+    <string name="cd_app_icon">Application icon for %1$s</string>
+
+    <string name="cd_permission_mode_indicator">Current permission mode: %1$s</string>
+    <string name="cd_capability_enabled">Capability enabled: %1$s</string>
+    <string name="cd_capability_disabled">Capability disabled: %1$s</string>
+
+    <string name="cd_backup_progress">Backup in progress: %1$d percent complete</string>
+    <string name="cd_cloud_sync_icon">Cloud synchronization status</string>
+    <string name="cd_encryption_icon">Encryption status</string>
+
+    <!-- Screen Reader Announcements -->
+    <string name="announce_backup_started">Backup started</string>
+    <string name="announce_backup_complete">Backup completed successfully</string>
+    <string name="announce_backup_failed">Backup failed. Please try again.</string>
+    <string name="announce_restore_started">Restore started</string>
+    <string name="announce_restore_complete">Restore completed successfully</string>
+    <string name="announce_restore_failed">Restore failed. Please try again.</string>
+    <string name="announce_app_selected">%1$s selected</string>
+    <string name="announce_app_deselected">%1$s deselected</string>
+    <string name="announce_apps_count">%1$d applications selected</string>
+
+    <!-- Voice Control Commands -->
+    <string name="voice_command_backup">backup my apps</string>
+    <string name="voice_command_restore">restore my apps</string>
+    <string name="voice_command_settings">open settings</string>
+    <string name="voice_command_status">backup status</string>
+
+    <!-- Simplified Mode -->
+    <string name="simplified_mode_title">Simple Mode</string>
+    <string name="simplified_backup_now">Backup Now</string>
+    <string name="simplified_restore_now">Restore Now</string>
+    <string name="simplified_view_backups">View Backups</string>
+
+    <!-- Touch Target Labels -->
+    <string name="touch_backup_apps">Tap to backup applications</string>
+    <string name="touch_restore_apps">Tap to restore applications</string>
+    <string name="touch_select_all">Tap to select all applications</string>
+    <string name="touch_deselect_all">Tap to deselect all applications</string>
+
+    <!-- High Contrast Mode -->
+    <string name="high_contrast_mode">High Contrast Mode</string>
+    <string name="enable_high_contrast">Enable high contrast theme for better visibility</string>
+
+    <!-- Keyboard Navigation -->
+    <string name="kb_hint_navigate">Use arrow keys to navigate</string>
+    <string name="kb_hint_select">Press space to select</string>
+    <string name="kb_hint_action">Press enter to perform action</string>
+
+    <!-- Widgets -->
+    <string name="widget_backup_description">Quick backup button for your home screen</string>
+    <string name="widget_status_description">Shows your last backup time and status</string>
+
+    <!-- Custom Permission Labels and Descriptions -->
+    <string name="permission_automation_label">Automation Control</string>
+    <string name="permission_automation_description">Allows automation apps (like Tasker) signed with the same certificate to trigger backup operations</string>
+
+    <string name="permission_tasker_status_label">Backup Status Query</string>
+    <string name="permission_tasker_status_description">Allows apps signed with the same certificate to query backup status information</string>
+
+    <string name="permission_wear_sync_label">Wear OS Synchronization</string>
+    <string name="permission_wear_sync_description">Allows Wear OS companion app to synchronize backup data with the watch</string>
+
+    <!-- Common Actions -->
+    <string name="action_backup">Backup</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_ok">OK</string>
+    <string name="action_close">Close</string>
+    <string name="action_export">Export</string>
+    <string name="action_subscribe">Subscribe</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_back">Back</string>
+    <string name="action_next">Next</string>
+    <string name="action_get_started">Get Started</string>
+    <string name="action_upgrade">Upgrade</string>
+    <string name="action_upgrade_now">Upgrade Now</string>
+    <string name="action_maybe_later">Maybe Later</string>
+    <string name="action_promo">Promo</string>
+    <string name="action_simulate">Simulate</string>
+    <string name="action_restore_now">Restore Now</string>
+    <string name="action_proceed_with_restore">Proceed with Restore</string>
+    <string name="action_update_payment">Update Payment Method</string>
+
+    <!-- Dashboard Screen -->
+    <string name="stat_label_backups">Backups</string>
+    <string name="stat_label_last">Last</string>
+    <string name="stat_label_size">Size</string>
+    <string name="permission_status_title">Permission Status</string>
+    <string name="quick_actions_title">Quick Actions</string>
+    <string name="capability_backup_apk">Backup APK</string>
+    <string name="capability_backup_data">Backup Data</string>
+    <string name="capability_incremental">Incremental</string>
+    <string name="capability_restore_selinux">Restore SELinux</string>
+
+    <!-- Backups Screen -->
+    <string name="backups_title">Backup Snapshots</string>
+    <string name="backups_empty_title">No backups yet</string>
+    <string name="backups_empty_subtitle">Create your first backup from the Apps screen</string>
+    <string name="backup_details_title">Backup Details</string>
+    <string name="backup_detail_created">Created</string>
+    <string name="backup_detail_size">Size</string>
+    <string name="backup_detail_compression">Compression</string>
+    <string name="backup_detail_mode">Mode</string>
+    <string name="backup_detail_apps">Apps</string>
+    <string name="backup_detail_device_info">Device Info</string>
+    <string name="backup_detail_device">Device</string>
+    <string name="backup_detail_android">Android</string>
+    <string name="backup_status_verified">Verified</string>
+    <string name="backup_status_not_verified">Not Verified</string>
+    <string name="backup_status_encrypted">Encrypted</string>
+
+    <!-- Backups Dialogs -->
+    <string name="dialog_delete_backup_title">Delete Backup?</string>
+    <string name="dialog_delete_backup_message">This will permanently delete this backup. This action cannot be undone.</string>
+    <string name="dialog_restore_backup_title">Restore Backup</string>
+    <string name="dialog_restore_overwrite_warning">Existing data will be overwritten.</string>
+    <string name="dialog_restore_simulate_hint">Simulate restore to preview changes</string>
+    <string name="dialog_restore_simulation_title">Restore Simulation</string>
+    <string name="simulation_apps_to_restore">Apps to restore:</string>
+    <string name="simulation_estimated_duration">Estimated duration:</string>
+    <string name="simulation_status_label">Status:</string>
+    <string name="simulation_can_proceed">Can proceed</string>
+    <string name="simulation_blocked">Blocked</string>
+    <string name="simulation_conflicts_detected">Conflicts Detected:</string>
+    <string name="simulation_warnings">Warnings:</string>
+
+    <!-- Settings Screen — Sections -->
+    <string name="settings_section_backup_restore">Backup &amp; Restore</string>
+    <string name="settings_section_encryption">Encryption</string>
+    <string name="settings_section_cloud_sync">Cloud &amp; Sync</string>
+    <string name="settings_section_gaming">Gaming &amp; Emulators</string>
+    <string name="settings_section_health">Health &amp; Fitness</string>
+    <string name="settings_section_automation">Automation &amp; Scheduling</string>
+    <string name="settings_section_plugins">Plugins</string>
+    <string name="settings_section_retention">Retention &amp; Cleanup</string>
+    <string name="settings_section_permissions">Permissions</string>
+    <string name="settings_section_advanced">Advanced</string>
+    <string name="settings_section_about">About</string>
+
+    <!-- Settings Screen — Items -->
+    <string name="settings_auto_backup_title">Auto Backup</string>
+    <string name="settings_auto_backup_subtitle">Automatically backup apps on schedule</string>
+    <string name="settings_compression_title">Compression</string>
+    <string name="settings_compression_subtitle">Compress backups to save space</string>
+    <string name="settings_compression_profile_title">Compression Profile</string>
+    <string name="settings_compression_profile_subtitle">Balance between speed and size</string>
+    <string name="settings_verification_title">Verification</string>
+    <string name="settings_verification_subtitle">Always verify after backup</string>
+    <string name="settings_encryption_title">Standard Encryption</string>
+    <string name="settings_encryption_subtitle">Encrypt backups with device key</string>
+    <string name="settings_encryption_subtitle_free">Encrypt backups (PRO)</string>
+    <string name="settings_zero_knowledge_title">Zero-Knowledge Encryption</string>
+    <string name="settings_zero_knowledge_subtitle">Maximum privacy - keys never leave device</string>
+    <string name="settings_zero_knowledge_subtitle_free">Maximum privacy (PRO)</string>
+    <string name="settings_cloud_sync_title">Cloud Sync</string>
+    <string name="settings_cloud_sync_subtitle">Sync backups to cloud storage</string>
+    <string name="settings_cloud_providers_title">Cloud Providers</string>
+    <string name="settings_cloud_providers_subtitle">Configure cloud storage (PRO)</string>
+    <string name="settings_decentralized_title">Decentralized Storage</string>
+    <string name="settings_decentralized_subtitle">IPFS/Filecoin censorship-resistant backup</string>
+    <string name="settings_sync_policies_title">Sync Policies</string>
+    <string name="settings_sync_policies_subtitle">When and what to sync (PRO)</string>
+    <string name="settings_gaming_backups_title">Gaming Backups</string>
+    <string name="settings_gaming_backups_subtitle">Backup emulator saves and ROMs</string>
+    <string name="settings_play_games_title">Play Games Cloud Sync</string>
+    <string name="settings_play_games_subtitle">Sync with Google Play Games</string>
+    <string name="settings_health_connect_title">Health Connect Sync</string>
+    <string name="settings_health_connect_subtitle">Backup health and fitness data</string>
+    <string name="settings_privacy_settings_title">Privacy Settings</string>
+    <string name="settings_privacy_settings_subtitle">Anonymize health data exports</string>
+    <string name="settings_smart_scheduling_title">Smart Scheduling</string>
+    <string name="settings_smart_scheduling_subtitle">ML-based optimal backup times</string>
+    <string name="settings_smart_scheduling_subtitle_free">AI scheduling (PRO)</string>
+    <string name="settings_tasker_integration_title">Tasker Integration</string>
+    <string name="settings_tasker_integration_subtitle">Trigger backups from Tasker</string>
+    <string name="settings_plugin_system_title">Plugin System</string>
+    <string name="settings_plugin_system_subtitle">Manage backup plugins</string>
+    <string name="settings_plugin_security_title">Plugin Security</string>
+    <string name="settings_plugin_security_subtitle">Sandbox and permissions</string>
+    <string name="settings_retention_policies_title">Retention Policies</string>
+    <string name="settings_retention_policies_subtitle">Auto-delete old backups</string>
+    <string name="settings_storage_limits_title">Storage Limits</string>
+    <string name="settings_storage_limits_subtitle">Maximum backup storage</string>
+    <string name="settings_permission_mode_title">Permission Mode</string>
+    <string name="settings_permission_mode_subtitle">Prefer root over Shizuku</string>
+    <string name="settings_request_permissions_title">Request Permissions</string>
+    <string name="settings_request_permissions_subtitle">Re-detect available permissions</string>
+    <string name="settings_simplified_mode_title">Simplified Mode</string>
+    <string name="settings_simplified_mode_subtitle">High-contrast, large-text accessibility interface</string>
+    <string name="settings_debug_mode_title">Debug Mode</string>
+    <string name="settings_debug_mode_subtitle">Enable verbose logging</string>
+    <string name="settings_parallel_ops_title">Parallel Backup Operations</string>
+    <string name="settings_parallel_ops_subtitle">Backup multiple apps simultaneously</string>
+    <string name="settings_parallel_ops_subtitle_free">Parallel operations (PRO)</string>
+    <string name="settings_parallel_ops_info">Parallel mode backs up multiple apps at once, using up to 4 threads. Best for devices with fast storage.</string>
+    <string name="settings_busybox_title">BusyBox Options</string>
+    <string name="settings_busybox_subtitle">Configure tar, rsync, zstd options</string>
+    <string name="settings_export_diagnostics_title">Export Diagnostics</string>
+    <string name="settings_export_diagnostics_subtitle">Export logs and system info</string>
+    <string name="settings_export_logs_title">Export App Logs</string>
+    <string name="settings_export_logs_subtitle">Export application log files</string>
+    <string name="settings_export_shell_audit_title">Export Shell Audit Logs</string>
+    <string name="settings_export_shell_audit_subtitle">Export command execution logs</string>
+    <string name="settings_feature_flags_title">Feature Flags</string>
+    <string name="settings_feature_flags_subtitle">Enable/disable experimental features</string>
+    <string name="settings_version_title">Version</string>
+    <string name="settings_version_subtitle">ObsidianBackup 1.0.0-alpha</string>
+    <string name="settings_licenses_title">Open Source Licenses</string>
+    <string name="settings_licenses_subtitle">View licenses</string>
+    <string name="dialog_coming_soon_title">Feature Coming Soon</string>
+
+    <!-- Subscription Screen -->
+    <string name="subscription_screen_title">Subscriptions</string>
+    <string name="subscription_available_plans">Available Plans</string>
+    <string name="subscription_feature_comparison">Feature Comparison</string>
+    <string name="subscription_current_plan">Current Plan</string>
+    <string name="subscription_trial_available">14-Day Free Trial Available!</string>
+    <string name="subscription_trial_description">Try Pro or Team features risk-free. Cancel anytime.</string>
+    <string name="subscription_trial_includes">Includes 14-day free trial</string>
+    <string name="subscription_chip_current">Current</string>
+    <string name="dialog_promo_code_title">Enter Promo Code</string>
+    <string name="dialog_promo_code_label">Promo Code</string>
+    <string name="feature_basic_backup">Basic Backup &amp; Restore</string>
+    <string name="feature_incremental_backups">Incremental Backups</string>
+    <string name="feature_cloud_sync">Cloud Sync</string>
+    <string name="feature_encryption">Encryption</string>
+    <string name="feature_automation">Automation</string>
+    <string name="feature_multi_device">Multi-Device Management</string>
+    <string name="feature_shared_backups">Shared Backups</string>
+    <string name="feature_priority_support">Priority Support</string>
+
+    <!-- Onboarding Screen -->
+    <string name="onboarding_title">Welcome to ObsidianBackup</string>
+    <string name="onboarding_step1_title">Secure Backups</string>
+    <string name="onboarding_step1_description">ObsidianBackup uses advanced encryption to keep your data safe. All backups are encrypted locally before storage.</string>
+    <string name="onboarding_step2_title">Fast &amp; Efficient</string>
+    <string name="onboarding_step2_description">Incremental backups and compression ensure fast backup times and minimal storage usage.</string>
+    <string name="onboarding_step3_title">Extensible</string>
+    <string name="onboarding_step3_description">Plugin system allows you to extend functionality with gaming saves, health data, and custom backup targets.</string>
+</resources>

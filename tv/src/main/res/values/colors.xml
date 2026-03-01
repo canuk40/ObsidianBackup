@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TV Primary Colors - High Contrast -->
+    <color name="tv_primary">#2196F3</color>
+    <color name="tv_primary_dark">#1976D2</color>
+    <color name="tv_accent">#FF9800</color>
+    
+    <!-- Background Colors - Dark Theme for TV -->
+    <color name="tv_background">#0F0F0F</color>
+    <color name="tv_background_light">#1A1A1A</color>
+    <color name="tv_card_background">#212121</color>
+    
+    <!-- Text Colors - High Contrast for TV Viewing -->
+    <color name="tv_text_primary">#FFFFFF</color>
+    <color name="tv_text_secondary">#B3B3B3</color>
+    <color name="tv_text_hint">#757575</color>
+    
+    <!-- Status Colors -->
+    <color name="tv_success">#4CAF50</color>
+    <color name="tv_warning">#FFC107</color>
+    <color name="tv_error">#F44336</color>
+    
+    <!-- Focus Colors -->
+    <color name="tv_focus">#FFFFFF</color>
+    <color name="tv_focus_background">#1E88E5</color>
+    
+    <!-- Overlay -->
+    <color name="tv_overlay">#99000000</color>
+</resources>

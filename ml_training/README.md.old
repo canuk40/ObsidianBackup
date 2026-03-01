@@ -1,0 +1,45 @@
+# ML Model Training
+
+This directory contains scripts for training TensorFlow Lite models for ObsidianBackup's smart scheduling feature.
+
+## Prerequisites
+
+```bash
+pip install tensorflow numpy scikit-learn
+```
+
+## Training Process
+
+1. **Export Analytics Data** from ObsidianBackup:
+   ```kotlin
+   val analytics = BackupAnalytics(context)
+   val exportJson = analytics.export()
+   // Save to analytics_export.json
+   ```
+
+2. **Place the export file** in this directory as `analytics_export.json`
+
+3. **Run training script**:
+   ```bash
+   python3 train_backup_predictor.py
+   ```
+
+4. **Copy trained model** to app assets:
+   ```bash
+   cp backup_predictor.tflite ../app/src/main/assets/ml_models/
+   ```
+
+## Model Architecture
+
+- **Input**: 7 features (hour, day, battery, charging, wifi, location, activity)
+- **Hidden Layer 1**: 16 neurons, ReLU activation
+- **Hidden Layer 2**: 8 neurons, ReLU activation  
+- **Output**: 1 neuron, Sigmoid activation (0-1 probability)
+
+## Expected Model Size
+
+~50KB (TensorFlow Lite with quantization)
+
+## Minimum Training Data
+
+At least 10 backup events required, but 50+ recommended for good accuracy.

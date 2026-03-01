@@ -1,0 +1,81 @@
+Starting a Gradle Daemon, 15 stopped Daemons could not be reused, use --status for details
+Configuration on demand is an incubating feature.
+Calculating task graph as configuration cache cannot be reused because file 'app/build.gradle.kts' has changed.
+
+> Configure project :app
+WARNING: The option setting 'android.defaults.buildfeatures.buildconfig=true' is deprecated.
+The current default is 'false'.
+It will be removed in version 9.0 of the Android Gradle plugin.
+To keep using this feature, add the following to your module-level build.gradle files:
+    android.buildFeatures.buildConfig = true
+or from Android Studio, click: `Refactor` > `Migrate BuildConfig to Gradle Build Files`.
+WARNING: The option 'android.enableNewResourceProcessing' is deprecated.
+The current default is 'true'.
+It has been removed from the current version of the Android Gradle plugin.
+New resource processing is now always enabled.
+WARNING: The option setting 'android.experimental.testOptions.managedDevices.setupTimeoutMinutes=180' is experimental.
+w: file:///root/workspace/ObsidianBackup/app/build.gradle.kts:581:40: 'getter for buildDir: File!' is deprecated. Deprecated in Java
+w: file:///root/workspace/ObsidianBackup/app/build.gradle.kts:584:42: 'getter for buildDir: File!' is deprecated. Deprecated in Java
+w: file:///root/workspace/ObsidianBackup/app/build.gradle.kts:590:44: 'getter for buildDir: File!' is deprecated. Deprecated in Java
+w: file:///root/workspace/ObsidianBackup/app/build.gradle.kts:608:50: 'getter for buildDir: File!' is deprecated. Deprecated in Java
+w: file:///root/workspace/ObsidianBackup/app/build.gradle.kts:609:44: 'getter for buildDir: File!' is deprecated. Deprecated in Java
+w: file:///root/workspace/ObsidianBackup/app/build.gradle.kts:626:29: 'getter for buildDir: File!' is deprecated. Deprecated in Java
+WARNING: API 'splits.density' is obsolete.
+It will be removed in version 9.0 of the Android Gradle plugin.
+Density-based apk split feature is deprecated and will be removed in AGP 9.0. Use Android App Bundle (https://developer.android.com/guide/app-bundle) to generate optimized APKs.
+For more information, see https://developer.android.com/studio/build/configure-apk-splits#configure-density-split.
+To determine what is calling splits.density, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preFreeDebugBuild UP-TO-DATE
+> Task :app:generateFreeDebugBuildConfig UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:createFreeDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:generateFreeDebugResources UP-TO-DATE
+> Task :app:extractDeepLinksFreeDebug UP-TO-DATE
+> Task :app:packageFreeDebugResources UP-TO-DATE
+> Task :app:parseFreeDebugLocalResources UP-TO-DATE
+> Task :app:mapFreeDebugSourceSetPaths
+> Task :app:checkFreeDebugAarMetadata
+
+> Task :app:processFreeDebugMainManifest
+[org.tensorflow:tensorflow-lite:2.14.0] /root/.gradle/caches/8.13/transforms/a08eed331a697916b797551d9df1a34d/transformed/tensorflow-lite-2.14.0/AndroidManifest.xml Warning:
+	Namespace 'org.tensorflow.lite' is used in multiple modules and/or libraries: org.tensorflow:tensorflow-lite:2.14.0, org.tensorflow:tensorflow-lite-api:2.14.0. Please ensure that all modules and libraries have a unique namespace. For more information, See https://developer.android.com/studio/build/configure-app-module#set-namespace
+[org.tensorflow:tensorflow-lite-support:0.4.4] /root/.gradle/caches/8.13/transforms/aeb08f20aff2f45c76fb29388fffc2c8/transformed/tensorflow-lite-support-0.4.4/AndroidManifest.xml Warning:
+	Namespace 'org.tensorflow.lite.support' is used in multiple modules and/or libraries: org.tensorflow:tensorflow-lite-support:0.4.4, org.tensorflow:tensorflow-lite-support-api:0.4.4. Please ensure that all modules and libraries have a unique namespace. For more information, See https://developer.android.com/studio/build/configure-app-module#set-namespace
+
+> Task :app:processFreeDebugManifest UP-TO-DATE
+> Task :app:processFreeDebugManifestForPackage UP-TO-DATE
+> Task :app:mergeFreeDebugResources FAILED
+
+[Incubating] Problems report is available at: file:///root/workspace/ObsidianBackup/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:mergeFreeDebugResources'.
+> Multiple task action failures occurred:
+   > A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+      > Resource compilation failed (/root/workspace/ObsidianBackup/app/build/intermediates/incremental/freeDebug/mergeFreeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml (No such file or directory). Cause: null). Check logs for more details.
+   > A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+      > Resource compilation failed (/root/workspace/ObsidianBackup/app/build/intermediates/incremental/freeDebug/mergeFreeDebugResources/merged.dir/values-v31/values-v31.xml (No such file or directory). Cause: null). Check logs for more details.
+   > A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+      > Resource compilation failed (/root/workspace/ObsidianBackup/app/build/intermediates/incremental/freeDebug/mergeFreeDebugResources/merged.dir/values-sl/values-sl.xml (No such file or directory). Cause: null). Check logs for more details.
+   > A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+      > Resource compilation failed (/root/workspace/ObsidianBackup/app/build/intermediates/incremental/freeDebug/mergeFreeDebugResources/merged.dir/values-ru/values-ru.xml (No such file or directory). Cause: null). Check logs for more details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 2m 55s
+13 actionable tasks: 5 executed, 8 up-to-date
+Configuration cache entry stored.

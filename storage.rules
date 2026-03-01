@@ -1,0 +1,30 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Backup files - users can only access their own
+    match /backups/{userId}/{backupId} {
+      allow read: if request.auth != null && 
+                    (request.auth.uid == userId || 
+                     request.auth.token.admin == true);
+      allow write: if request.auth != null && request.auth.uid == userId;
+      allow delete: if request.auth != null && 
+                      (request.auth.uid == userId || 
+                       request.auth.token.admin == true);
+    }
+    
+    // Regional replicas - system managed
+    match /{region}/backups/{userId}/{backupId} {
+      allow read: if request.auth != null && 
+                    (request.auth.uid == userId || 
+                     request.auth.token.admin == true);
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Immutable storage - no deletion allowed during retention
+    match /immutable/{objectId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+      allow delete: if false; // Deletion controlled by Cloud Functions
+    }
+  }
+}

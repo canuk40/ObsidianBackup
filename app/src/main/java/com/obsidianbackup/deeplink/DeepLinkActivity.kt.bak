@@ -1,0 +1,178 @@
+package com.obsidianbackup.deeplink
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
+import com.obsidianbackup.logging.ObsidianLogger
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+/**
+ * Activity that handles incoming deep links
+ * This is a transparent activity that processes deep links and routes to appropriate destinations
+ * 
+ * SECURITY: All custom scheme (obsidianbackup://) deep links undergo signature verification
+ * to prevent URI interception attacks. HTTPS app links are verified by Android automatically.
+ */
+@AndroidEntryPoint
+class DeepLinkActivity : FragmentActivity() {
+    
+    @Inject
+    lateinit var deepLinkHandler: DeepLinkHandler
+    
+    @Inject
+    lateinit var securityValidator: DeepLinkSecurityValidator
+    
+    @Inject
+    lateinit var logger: ObsidianLogger
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        
+        logger.i(TAG, "DeepLinkActivity started")
+        
+        // Handle the deep link
+        handleIntent(intent)
+    }
+    
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleIntent(intent)
+    }
+    
+    private fun handleIntent(intent: Intent) {
+        val uri = intent.data
+        
+        if (uri == null) {
+            logger.w(TAG, "DeepLinkActivity called with no URI")
+            showError("Invalid deep link")
+            finish()
+            return
+        }
+        
+        logger.i(TAG, "Processing deep link: $uri")
+        
+        // SECURITY: Verify deep link origin before processing
+        if (!verifyDeepLinkOrigin(intent)) {
+            logger.w(TAG, "Deep link security validation failed")
+            showSecurityError("This deep link was rejected for security reasons. Only trusted apps can trigger custom deep links.")
+            finish()
+            return
+        }
+        
+        // Process the deep link asynchronously
+        lifecycleScope.launch {
+            try {
+                val result = deepLinkHandler.handleIntent(intent, this@DeepLinkActivity)
+                
+                when (result) {
+                    is DeepLinkResult.Success -> {
+                        logger.i(TAG, "Deep link handled successfully")
+                        // Success - the router has already navigated
+                        finish()
+                    }
+                    
+                    is DeepLinkResult.AuthenticationRequired -> {
+                        logger.w(TAG, "Authentication failed: ${result.reason}")
+                        showError("Authentication required: ${result.reason}")
+                        finish()
+                    }
+                    
+                    is DeepLinkResult.Error -> {
+                        logger.e(TAG, "Deep link error: ${result.reason}")
+                        showError("Failed to process deep link: ${result.reason}")
+                        finish()
+                    }
+                }
+            } catch (e: Exception) {
+                logger.e(TAG, "Exception handling deep link", e)
+                showError("Error: ${e.message}")
+                finish()
+            }
+        }
+    }
+    
+    /**
+     * Verify deep link origin to prevent URI interception attacks
+     * 
+     * SECURITY CHECKS:
+     * 1. HTTPS app links (https://obsidianbackup.app/*) are always trusted (verified by Android)
+     * 2. Custom scheme (obsidianbackup://) requires:
+     *    - Calling app must be identified
+     *    - Calling app must be in trusted whitelist
+     *    - Calling app signature must match expected value
+     */
+    private fun verifyDeepLinkOrigin(intent: Intent): Boolean {
+        val uri = intent.data ?: return false
+        val scheme = uri.scheme?.lowercase()
+        
+        // Get calling package - try multiple methods
+        val callingPackage = getCallingPackage(intent)
+        
+        // Validate via security validator
+        val validationResult = securityValidator.validateDeepLinkOrigin(uri, callingPackage)
+        
+        if (!validationResult.allowed) {
+            logger.w(TAG, "SECURITY: Deep link rejected - ${validationResult.reason}")
+            logger.w(TAG, "SECURITY: URI=$uri, Caller=$callingPackage, Scheme=$scheme")
+        }
+        
+        return validationResult.allowed
+    }
+    
+    /**
+     * Extract calling package from Intent
+     * Tries multiple methods to identify the caller
+     */
+    private fun getCallingPackage(intent: Intent): String? {
+        // Method 1: Activity.getCallingActivity() (most reliable)
+        callingActivity?.packageName?.let { return it }
+        
+        // Method 2: Intent extra (set by launcher/automation apps)
+        intent.getStringExtra("source_package")?.let { return it }
+        intent.getStringExtra("calling_package")?.let { return it }
+        intent.getStringExtra("referrer")?.let { return it }
+        
+        // Method 3: Referrer URI (Android's built-in mechanism)
+        referrer?.host?.let { return it }
+        
+        // Method 4: Check if launched from ourselves (self-invoked)
+        if (intent.hasExtra("self_invoked") && intent.getBooleanExtra("self_invoked", false)) {
+            return packageName
+        }
+        
+        return null
+    }
+    
+    /**
+     * Check if URI uses HTTPS scheme (always trusted - verified by Android)
+     */
+    private fun isHttpsScheme(uri: android.net.Uri?): Boolean {
+        return uri?.scheme?.lowercase() == "https"
+    }
+    
+    /**
+     * Show user-friendly security error with more context
+     */
+    private fun showSecurityError(message: String) {
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_LONG
+        ).show()
+        
+        // Log for security audit
+        logger.w(TAG, "SECURITY: User notified of rejected deep link")
+    }
+    
+    private fun showError(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+    
+    companion object {
+        private const val TAG = "DeepLinkActivity"
+    }
+}

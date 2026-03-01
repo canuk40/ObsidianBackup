@@ -1,0 +1,63 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Security: Never commit secrets
+local.properties
+gradle.properties.local
+*.keystore
+*.jks
+key.properties
+keystore.properties
+secrets.properties
+
+# OAuth credentials (copy from oauth_credentials.xml.example and fill in)
+app/src/main/res/values/oauth_credentials.xml
+
+# google-services.json is committed as a PLACEHOLDER TEMPLATE only (all values are YOUR_*).
+# If you fill in real Firebase credentials, add google-services.json to your local .gitignore
+# or run: git update-index --assume-unchanged app/google-services.json
+# to prevent accidentally committing real keys.
+
+# Build output directories
+app/build/
+build/
+.gradle/
+
+# IDE
+.idea/
+
+# Runtime logs — never commit
+*.log
+nohup.out
+logcat_session.log
+backup_test.log
+
+
+# ML training virtual environment
+ml_training/venv/
+ml_training/__pycache__/
+ml_training/*.pyc
+
+# Runtime logs — never commit
+*.log
+nohup.out
+
+# Android Virtual Device images — never commit (gigabytes of emulator data)
+avd/
+*.avd/
+
+# Release output APK/AAB artifacts
+release-output/

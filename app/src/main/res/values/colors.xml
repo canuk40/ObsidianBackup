@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- High Contrast Colors - WCAG AAA compliant (7:1 ratio) -->
+    <color name="hc_background_light">#FFFFFFFF</color>
+    <color name="hc_background_dark">#FF000000</color>
+    <color name="hc_text_on_light">#FF000000</color>
+    <color name="hc_text_on_dark">#FFFFFFFF</color>
+    <color name="hc_primary">#FF007700</color>
+    <color name="hc_primary_dark">#FF00FF00</color>
+    <color name="hc_secondary">#FF0066CC</color>
+    <color name="hc_secondary_dark">#FF66CCFF</color>
+    <color name="hc_error">#FFCC0000</color>
+    <color name="hc_error_dark">#FFFF6666</color>
+    <color name="hc_success">#FF006600</color>
+    <color name="hc_success_dark">#FF00CC00</color>
+    
+    <!-- Accessible Colors - WCAG AA compliant (4.5:1 ratio) -->
+    <color name="accessible_primary">#FF1B5E20</color>
+    <color name="accessible_secondary">#FF01579B</color>
+    <color name="accessible_text">#FF212121</color>
+    <color name="accessible_text_secondary">#FF757575</color>
+    <color name="accessible_border">#FF424242</color>
+    
+    <!-- Touch Target Highlight -->
+    <color name="touch_target_highlight">#4D4CAF50</color>
+    
+    <!-- Focus Indicator -->
+    <color name="focus_indicator">#FF2196F3</color>
+</resources>

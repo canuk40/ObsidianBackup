@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ObsidianBackup TV</string>
+    
+    <!-- Dashboard -->
+    <string name="dashboard_icon">Dashboard icon</string>
+    <string name="backup_now">Backup Now</string>
+    <string name="recent_backups">Recent Backups</string>
+    <string name="storage_status">Storage Status</string>
+    
+    <!-- Apps -->
+    <string name="app_icon">App icon</string>
+    <string name="tv_apps">TV Apps</string>
+    <string name="streaming_apps">Streaming Apps</string>
+    <string name="tv_games">TV Games</string>
+    <string name="no_apps_found">No apps found</string>
+    
+    <!-- Settings -->
+    <string name="settings_icon">Settings icon</string>
+    <string name="backup_settings">Backup Settings</string>
+    <string name="cloud_sync">Cloud Sync</string>
+    <string name="schedule">Schedule</string>
+    <string name="about">About</string>
+    
+    <!-- Actions -->
+    <string name="backup">Backup</string>
+    <string name="restore">Restore</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    
+    <!-- Messages -->
+    <string name="backup_started">Backup started</string>
+    <string name="backup_completed">Backup completed</string>
+    <string name="backup_failed">Backup failed</string>
+    <string name="restore_started">Restore started</string>
+    <string name="restore_completed">Restore completed</string>
+    <string name="restore_failed">Restore failed</string>
+    
+    <!-- Preferences -->
+    <string name="pref_backup_category">Backup Options</string>
+    <string name="pref_auto_backup">Automatic Backup</string>
+    <string name="pref_auto_backup_summary">Enable scheduled backups</string>
+    <string name="pref_backup_frequency">Backup Frequency</string>
+    <string name="pref_include_data">Include App Data</string>
+    <string name="pref_include_data_summary">Backup app data and settings</string>
+    
+    <string name="pref_cloud_category">Cloud Storage</string>
+    <string name="pref_cloud_provider">Cloud Provider</string>
+    <string name="pref_cloud_provider_summary">Select cloud storage service</string>
+    
+    <string name="pref_advanced_category">Advanced</string>
+    <string name="pref_compression">Enable Compression</string>
+    <string name="pref_compression_summary">Compress backups to save space</string>
+    <string name="pref_encryption">Enable Encryption</string>
+    <string name="pref_encryption_summary">Encrypt backups for security</string>
+</resources>

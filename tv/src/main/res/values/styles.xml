@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base TV Theme -->
+    <style name="Theme.Leanback" parent="Theme.Leanback.Browse">
+        <item name="android:colorPrimary">@color/tv_primary</item>
+        <item name="android:colorPrimaryDark">@color/tv_primary_dark</item>
+        <item name="android:colorAccent">@color/tv_accent</item>
+        <item name="android:windowBackground">@color/tv_background</item>
+        
+        <!-- Large text for TV viewing -->
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/tv_text_primary</item>
+    </style>
+
+    <!-- Details Theme -->
+    <style name="Theme.Leanback.Details" parent="Theme.Leanback.Details">
+        <item name="android:colorPrimary">@color/tv_primary</item>
+        <item name="android:colorPrimaryDark">@color/tv_primary_dark</item>
+        <item name="android:colorAccent">@color/tv_accent</item>
+        <item name="android:windowBackground">@color/tv_background</item>
+    </style>
+
+    <!-- Vertical Grid Theme -->
+    <style name="Theme.Leanback.VerticalGrid" parent="Theme.Leanback.VerticalGrid">
+        <item name="android:colorPrimary">@color/tv_primary</item>
+        <item name="android:colorAccent">@color/tv_accent</item>
+        <item name="android:windowBackground">@color/tv_background</item>
+    </style>
+
+    <!-- Large Text Styles for 10-foot UI -->
+    <style name="TVTextAppearance.Title" parent="TextAppearance.Leanback.Title">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/tv_text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TVTextAppearance.Subtitle" parent="TextAppearance.Leanback.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/tv_text_secondary</item>
+    </style>
+
+    <style name="TVTextAppearance.Body" parent="TextAppearance.Leanback.Body">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/tv_text_primary</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="TVCard">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+</resources>

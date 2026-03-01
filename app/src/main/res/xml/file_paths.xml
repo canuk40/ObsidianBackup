@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Cache directory for temporary config sharing -->
+    <cache-path name="shared_configs" path="/" />
+    
+    <!-- Files directory for exported configs -->
+    <files-path name="exported_configs" path="exported/" />
+
+    <!-- External logs directory for diagnostics sharing -->
+    <external-files-path name="logs" path="logs/" />
+</paths>

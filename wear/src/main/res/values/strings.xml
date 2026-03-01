@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ObsidianBackup</string>
+    <string name="tile_label">Backup</string>
+    <string name="complication_label">Backup Status</string>
+    
+    <!-- Complications -->
+    <string name="complication_short_text">OK</string>
+    <string name="complication_long_text">Last backup: %s</string>
+    <string name="complication_content_desc">Backup status: %s</string>
+    
+    <!-- Tile -->
+    <string name="tile_backup_now">Backup Now</string>
+    <string name="tile_status">Status: %s</string>
+    
+    <!-- Screens -->
+    <string name="screen_backup_title">ObsidianBackup</string>
+    <string name="screen_status_title">Backup Status</string>
+    <string name="screen_progress_title">Backup Progress</string>
+    
+    <!-- Actions -->
+    <string name="action_start_backup">Start Backup</string>
+    <string name="action_cancel_backup">Cancel Backup</string>
+    <string name="action_view_status">View Status</string>
+    <string name="action_refresh">Refresh</string>
+    
+    <!-- Status -->
+    <string name="status_running">Backup Running</string>
+    <string name="status_success">Success</string>
+    <string name="status_failed">Failed</string>
+    <string name="status_no_backup">No backup running</string>
+    <string name="status_phone_not_connected">Phone not connected</string>
+    
+    <!-- Progress -->
+    <string name="progress_percentage">%d%%</string>
+    <string name="progress_files" formatted="false">Files: %d / %d</string>
+    <string name="progress_current_file">Current: %s</string>
+    
+    <!-- Details -->
+    <string name="detail_last_backup">Last backup: %s</string>
+    <string name="detail_total_backups">Total backups: %d</string>
+    <string name="detail_backup_size">Size: %.2f MB</string>
+    <string name="detail_next_scheduled">Next: %s</string>
+</resources>

@@ -1,0 +1,195 @@
+spring:
+  application:
+    name: obsidian-enterprise-backend
+  
+  # Database Configuration (Finding 5 - PostgreSQL Multi-Tenant)
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:obsidian_enterprise}
+    username: ${DATABASE_USER:obsidian_ent}
+    password: ${DATABASE_PASSWORD:dev_password_change_in_production}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      pool-name: ObsidianEnterprisePool
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+    open-in-view: false
+  
+  # Flyway Migration
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    schemas: public
+  
+  # Redis Configuration (Finding 6 - JWT Token Blacklist)
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    timeout: 60000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 2
+  
+  # Session Configuration
+  session:
+    store-type: redis
+    redis:
+      namespace: obsidian:enterprise:session
+  
+  # Security Configuration (Findings 1, 6)
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER:http://localhost:8080}
+  
+  # Actuator Configuration (Finding 9 - Docker Health Checks)
+  actuator:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,prometheus,metrics
+        base-path: /actuator
+    endpoint:
+      health:
+        show-details: when-authorized
+        probes:
+          enabled: true
+    metrics:
+      export:
+        prometheus:
+          enabled: true
+  
+  # Distributed Tracing (Finding 10 - Valuable Context)
+  sleuth:
+    sampler:
+      probability: ${TRACING_SAMPLE_RATE:0.1}
+  zipkin:
+    base-url: ${ZIPKIN_URL:http://localhost:9411}
+    enabled: ${ZIPKIN_ENABLED:false}
+
+# Server Configuration (Finding 9 - Graceful Shutdown)
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Lifecycle Configuration
+lifecycle:
+  timeout-per-shutdown-phase: 30s
+
+# Application Configuration
+application:
+  # JWT Configuration (Finding 6)
+  jwt:
+    secret: ${JWT_SECRET:change-this-secret-in-production-use-256-bit-key}
+    access-token-expiration-ms: 900000  # 15 minutes
+    refresh-token-expiration-ms: 2592000000  # 30 days
+    issuer: ${JWT_ISSUER:ObsidianEnterprise}
+    audience: ${JWT_AUDIENCE:ObsidianBackupApp}
+  
+  # SAML Configuration (Finding 1)
+  saml:
+    enabled: ${SAML_ENABLED:false}
+    entity-id: ${SAML_ENTITY_ID:http://localhost:8080/saml/metadata}
+    idp:
+      metadata-url: ${SAML_IDP_METADATA_URL:}
+      entity-id: ${SAML_IDP_ENTITY_ID:}
+  
+  # FCM Configuration (Finding 3)
+  fcm:
+    enabled: ${FCM_ENABLED:false}
+    credentials-path: ${FCM_CREDENTIALS_PATH:}
+    project-id: ${FCM_PROJECT_ID:}
+  
+  # Audit Logging Configuration (Finding 8 - SOC 2)
+  audit:
+    enabled: true
+    retention-days: 730  # 24 months (SOC 2 best practice)
+    immutable: true
+    hash-chain: true
+  
+  # Policy Engine Configuration (Finding 4)
+  policy:
+    evaluation-interval-seconds: 300  # 5 minutes
+    auto-remediation-enabled: ${POLICY_AUTO_REMEDIATION:true}
+  
+  # Device Management Configuration (Finding 2)
+  devices:
+    enrollment-token-expiration-hours: 24
+    default-compliance-check-interval-hours: 1
+  
+  # Admin API Configuration (Finding 7)
+  api:
+    default-page-size: 20
+    max-page-size: 100
+    version: v1
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.obsidianbackup.enterprise: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: WARN
+    org.flywaydb: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# Management Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: when_authorized
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      environment: ${ENVIRONMENT:development}
+
+# Resilience4j Configuration (Finding 10 - Circuit Breaker)
+resilience4j:
+  circuitbreaker:
+    instances:
+      fcmService:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+      policyEngine:
+        registerHealthIndicator: true
+        slidingWindowSize: 20
+        failureRateThreshold: 60
+        waitDurationInOpenState: 15s

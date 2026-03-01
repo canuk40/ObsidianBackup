@@ -1,0 +1,24 @@
+=== Package Size Report ===
+
+276K	deployment_package/
+60K	ObsidianBackup_v1.0.0_deployment_package.tar.gz
+
+=== Directory Breakdown ===
+8.0K	deployment_package/apks/
+8.0K	deployment_package/bundles/
+40K	deployment_package/compliance/
+4.0K	deployment_package/coverage_reports/
+108K	deployment_package/documentation/
+8.0K	deployment_package/lint_reports/
+8.0K	deployment_package/mapping/
+24K	deployment_package/store_listing/
+8.0K	deployment_package/test_reports/
+8.0K	deployment_package/CHANGELOG.md
+16K	deployment_package/DEPLOYMENT_PACKAGE_MANIFEST.md
+4.0K	deployment_package/DEPLOYMENT_README.md
+12K	deployment_package/PRE_RELEASE_CHECKLIST.md
+16K	deployment_package/SUBMISSION_CHECKLIST.md
+
+=== File Count ===
+23
+files total

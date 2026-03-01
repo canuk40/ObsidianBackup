@@ -1,0 +1,124 @@
+site_name: ObsidianBackup Documentation
+site_description: Comprehensive documentation for ObsidianBackup Android backup solution
+site_author: ObsidianBackup Team
+site_url: https://docs.obsidianbackup.com
+
+repo_name: obsidianbackup/ObsidianBackup
+repo_url: https://github.com/obsidianbackup/ObsidianBackup
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+  
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+nav:
+  - Home: index.md
+  - User Guides:
+    - Getting Started: user-guides/getting-started.md
+    - Features Overview: user-guides/features-overview.md
+    - Backup Configuration: user-guides/backup-configuration.md
+    - Cloud Storage Setup: user-guides/cloud-storage.md
+    - Automation Guide: user-guides/automation.md
+    - Biometric Security: user-guides/biometric-security.md
+    - FAQ: user-guides/faq.md
+    - Troubleshooting: user-guides/troubleshooting.md
+  
+  - Developer Guides:
+    - Architecture Overview: developer-guides/architecture.md
+    - Plugin Development: developer-guides/plugin-development.md
+    - Building from Source: developer-guides/building.md
+    - Testing Guide: developer-guides/testing.md
+    - Contributing Guidelines: developer-guides/contributing.md
+    - Security Policy: developer-guides/security-policy.md
+  
+  - Architecture Decision Records:
+    - ADR Index: adr/README.md
+    - "001: Layered Architecture": adr/001-architecture-layered.md
+    - "002: Plugin System": adr/002-plugin-system.md
+    - "003: Merkle Tree Verification": adr/003-merkle-tree-verification.md
+  
+  - Code Examples:
+    - Examples Index: examples/README.md
+  
+  - API Reference:
+    - API Documentation: api/index.html
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/obsidianbackup
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/obsidianbackup
+  
+  version:
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2024 ObsidianBackup Team
