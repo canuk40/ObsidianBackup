@@ -1,0 +1,155 @@
+# .github/workflows/release.yml
+# Release workflow — builds a signed release APK and publishes a GitHub Release.
+#
+# TRIGGERS
+# --------
+#   • Push of a version tag (e.g. v1.0.8)  →  automatic release
+#   • workflow_dispatch                      →  manual release (prompts for tag/notes)
+#
+# REQUIRED GITHUB SECRETS
+# -----------------------
+#   KEYSTORE_BASE64      Base64-encoded release keystore (.jks).
+#                        Generate with:  base64 -w 0 obsidianbackup.jks
+#   KEY_STORE_PASSWORD   Password for the keystore file (storePassword).
+#   KEY_ALIAS            Key alias inside the keystore (keyAlias).
+#   KEY_PASSWORD         Password for the key (keyPassword).
+#
+# OPTIONAL SECRETS / VARIABLES
+# ----------------------------
+#   B2_KEY_ID            Backblaze B2 key ID (injected into BuildConfig).
+#   B2_APPLICATION_KEY   Backblaze B2 application key (injected into BuildConfig).
+#
+# HOW TO ADD SECRETS
+# ------------------
+#   Repository → Settings → Secrets and variables → Actions → New repository secret
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'          # e.g. v1.0.8, v2.0.0-rc1
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v1.0.8). Used only for the GitHub Release title.'
+        required: false
+        default: ''
+      release_notes:
+        description: 'Release notes / changelog entry'
+        required: false
+        default: 'See commit history for changes.'
+
+env:
+  JAVA_VERSION: '17'
+  JAVA_DISTRIBUTION: 'temurin'
+
+jobs:
+  build-release:
+    name: Build & Publish Release APK
+    runs-on: ubuntu-latest
+
+    # Grant permission to create GitHub Releases and upload assets.
+    permissions:
+      contents: write
+
+    steps:
+      # ── 1. Source code ────────────────────────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so git describe works for version names
+
+      # ── 2. Java toolchain ─────────────────────────────────────────────────────
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # ── 3. Keystore (written to RUNNER_TEMP, never to the workspace) ──────────
+      - name: Decode keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/obsidianbackup.jks"
+
+      - name: Create keystore.properties
+        env:
+          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          # build.gradle.kts reads keystore.properties from the project root and
+          # the JKS file from rootProject.projectDir/obsidianbackup.jks.
+          # We symlink the JKS into the workspace so Gradle can find it.
+          ln -s "$RUNNER_TEMP/obsidianbackup.jks" "$GITHUB_WORKSPACE/obsidianbackup.jks"
+          cat > "$GITHUB_WORKSPACE/keystore.properties" <<EOF
+          storePassword=${KEY_STORE_PASSWORD}
+          keyAlias=${KEY_ALIAS}
+          keyPassword=${KEY_PASSWORD}
+          EOF
+
+      # ── 4. local.properties (SDK path + optional API keys) ────────────────────
+      - name: Create local.properties
+        env:
+          B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
+          B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+        run: |
+          cat > local.properties <<EOF
+          sdk.dir=${ANDROID_SDK_ROOT}
+          b2.keyId=${B2_KEY_ID}
+          b2.applicationKey=${B2_APPLICATION_KEY}
+          EOF
+
+      # ── 5. Build signed release APK ───────────────────────────────────────────
+      - name: Build release APK
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
+
+      # ── 6. Remove keystore artifacts from workspace ────────────────────────────
+      - name: Clean up signing files
+        if: always()
+        run: |
+          rm -f "$GITHUB_WORKSPACE/obsidianbackup.jks"
+          rm -f "$GITHUB_WORKSPACE/keystore.properties"
+          rm -f "$RUNNER_TEMP/obsidianbackup.jks"
+
+      # ── 7. Determine release tag & version ───────────────────────────────────
+      - name: Resolve release tag
+        id: tag
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            TAG="${GITHUB_REF#refs/tags/}"
+          else
+            TAG="${{ github.event.inputs.tag }}"
+            if [[ -z "$TAG" ]]; then
+              TAG="manual-build-$(date +'%Y%m%d-%H%M%S')"
+            fi
+          fi
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "Resolved release tag: ${TAG}"
+
+      # ── 8. Upload APK as workflow artifact (always available) ─────────────────
+      - name: Upload release APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: obsidianbackup-release-${{ steps.tag.outputs.tag }}
+          path: app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error
+
+      # ── 9. Create GitHub Release (tag push or manual trigger) ─────────────────
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ObsidianBackup ${{ steps.tag.outputs.tag }}
+          body: ${{ github.event.inputs.release_notes || 'See commit history for changes.' }}
+          draft: false
+          prerelease: ${{ contains(steps.tag.outputs.tag, '-rc') || contains(steps.tag.outputs.tag, '-beta') || contains(steps.tag.outputs.tag, '-alpha') }}
+          files: app/build/outputs/apk/release/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

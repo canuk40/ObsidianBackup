@@ -8,6 +8,9 @@ package com.obsidianbackup.model
 enum class FeatureTier {
     FREE, PRO, TEAM, ENTERPRISE;
 
+    val displayName: String
+        get() = name.lowercase().replaceFirstChar { it.uppercase() }
+
     val isSubscription: Boolean
         get() = this != FREE
 }
